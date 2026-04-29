@@ -2,6 +2,7 @@ package jogos.jogosCategotia.domain.service;
 
 import jogos.jogosCategotia.domain.dto.CategoriaDTO;
 import jogos.jogosCategotia.domain.entity.Categoria;
+import jogos.jogosCategotia.domain.exerception.NotFound;
 import jogos.jogosCategotia.repository.CategoriaRepository;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +34,6 @@ public class CategoriaService {
 
     public Categoria buscarPorID(Long id){
         return categoriaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(id + " não encontrado"));
+                .orElseThrow(() -> new NotFound(String.format("id %s não foi encontrado", id)));
     }
 }

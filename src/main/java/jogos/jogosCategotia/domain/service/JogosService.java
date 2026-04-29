@@ -36,6 +36,7 @@ public class JogosService {
     }
 
     public List<JogoDTO> jogoAll(){
+
         return jogosRepository.findAll()
                 .stream()
                 .map(j -> new JogoDTO(j.getNome(), j.getIdade(), j.getCategorias()
@@ -48,7 +49,7 @@ public class JogosService {
 
     public Jogos buscarID (Long id){
         return jogosRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(String.format(id + "não existi")));
+                .orElseThrow(() -> new RuntimeException(String.format("id %s não encontrado", id)));
     }
 
 

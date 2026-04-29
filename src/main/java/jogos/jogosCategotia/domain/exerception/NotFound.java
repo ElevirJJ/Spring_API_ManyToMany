@@ -1,0 +1,7 @@
+package jogos.jogosCategotia.domain.exerception;
+
+public class NotFound extends RuntimeException {
+    public NotFound(String message) {
+        super(message);
+    }
+}
